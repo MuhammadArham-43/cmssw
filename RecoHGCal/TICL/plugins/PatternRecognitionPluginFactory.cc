@@ -1,6 +1,7 @@
 #include "RecoHGCal/TICL/plugins/PatternRecognitionPluginFactory.h"
 #include "PatternRecognitionbyCA.h"
 #include "PatternRecognitionbyCLUE3D.h"
+#include "PatternRecognitionFromSoAbyCLUE3D.h"
 #include "PatternRecognitionbyFastJet.h"
 #include "PatternRecognitionbyPassthrough.h"
 #include "FWCore/ParameterSet/interface/ValidatedPluginFactoryMacros.h"
@@ -8,8 +9,10 @@
 
 EDM_REGISTER_VALIDATED_PLUGINFACTORY(PatternRecognitionFactory, "PatternRecognitionFactory");
 EDM_REGISTER_VALIDATED_PLUGINFACTORY(PatternRecognitionHFNoseFactory, "PatternRecognitionHFNoseFactory");
+EDM_REGISTER_VALIDATED_PLUGINFACTORY(PatternRecognitionFromSoAFactory, "PatternRecognitionFromSoAFactory");
 DEFINE_EDM_VALIDATED_PLUGIN(PatternRecognitionFactory, ticl::PatternRecognitionbyCA<TICLLayerTiles>, "CA");
 DEFINE_EDM_VALIDATED_PLUGIN(PatternRecognitionFactory, ticl::PatternRecognitionbyCLUE3D<TICLLayerTiles>, "CLUE3D");
+DEFINE_EDM_VALIDATED_PLUGIN(PatternRecognitionFromSoAFactory, ticl::PatternRecognitionFromSoAbyCLUE3D<TICLLayerTiles>, "CLUE3D");
 DEFINE_EDM_VALIDATED_PLUGIN(PatternRecognitionFactory, ticl::PatternRecognitionbyFastJet<TICLLayerTiles>, "FastJet");
 DEFINE_EDM_VALIDATED_PLUGIN(PatternRecognitionFactory,
                             ticl::PatternRecognitionbyPassthrough<TICLLayerTiles>,
